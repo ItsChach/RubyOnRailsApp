@@ -34,40 +34,54 @@
 
 <br>
 
-<main role="main">
-    <div class="jumbotron">
-      <div class="container">
+<body style="background-image: url('https://cdn.pixabay.com/photo/2014/06/16/23/39/black-370118_960_720.png'); 
+    background-color:#000000; background-repeat: no-repeat; background-size: 100% 100%;
+    color: #FFFFFF;>
+<div class="container py-4"">
+
+
+<main role="main bg-info">
+    <div class="jumbotron bg-info">
+      <div class="container border border-dark">
         <h1 class="display-3">Welcome!</h1>
          <p>My name is Cole Hulick and Im currently a senior at UCCS studying computer security. 
          This web application allows students to add, destroy, edit, and view their projects.</p>
         </div>
     </div>
     
+    
     <hr>
-    <div class="d-grid gap-2 col-6 mx-auto">
-     <a <button class="btn btn-primary btn-lg" <%= link_to 'View All Projects', "/projects/list" %></a>
-     <a <button class="btn btn-primary btn-lg" <%= link_to 'Create New Project', new_project_path %> </a>
+    <div class="d-grid gap-6 col-12 mx-auto">
+     <a <button class="btn btn-primary btn-lg bg-info" <%= link_to 'View All Projects', "/projects/list" %></a>
+     <a <button class="btn btn-primary btn-lg bg-info" <%= link_to 'Create New Project', new_project_path %> </a>
     </div>
     <hr>
 
-    <div class= "row mx-auto">
-      <% @projects.each do |project| %>
-        <tr>
-         <div class="col-md-4">
-           <h2> <td><%= project.title %></td> </h2>
-           <hr>
-           <div class = "jumbotron">
-             <div class = "container">
-               <td><%= "To view this project, please click" " View Details" "." %></td><p></p>
-              </div>
-            </div>
-           <p><a class = "btn btn-secondary"  <%= link_to 'View details', project %> </a></p>
-           <a <button type="button" class="btn btn-info btn-sm" <%= link_to 'Edit', edit_project_path(project) %></a> |
-           <a <button type="button" class="btn btn-danger btn-sm" <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></a>
-          </div>
-         </tr>
-      <% end %>
-    </div>
+    <div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Projects</h2>
     <hr>
-    
+    <div class= "row mx-auto">
+
+
+
+    <% @projects.each do |project| %>
+      <tr>
+       <div class="col-md-4">
+         <h2> <td><%= project.title %></td> </h2>
+         <hr>
+         <div class = "jumbotron bg-dark">
+           <div class = "container">
+             <td><%= "To view this project, please click" " View Details" "." %></td><p></p>
+            </div>
+          </div>
+         <p><a class = "btn btn-secondary bg-success"  <%= link_to 'View details', project %> </a></p>
+         <a <button type="button" class="btn btn-info btn-sm " <%= link_to 'Edit', edit_project_path(project) %></a> |
+         <a <button type="button" class="btn btn-danger btn-sm" <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+        </div>
+       </tr>
+    <% end %>
+  </div>
+  <hr>
+
 </main>
+
