@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Adminss::ConfirmationsController < Devise::ConfirmationsController
+class Admins::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   # def new
   #   super
@@ -24,7 +24,7 @@ class Adminss::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # The path used after confirmation.
-#   def after_confirmation_path_for(resource_name, resource)
-#     super(resource_name, resource)
-#   end
+  # def after_confirmation_path_for(resource_name, resource)
+  #   super(resource_name, resource)
+  # end
 end
