@@ -1,12 +1,8 @@
 
-#require 'devise'
-#class ProjectsController < ApplicationController
-  #before_action :set_project, only: %i[ show edit update destroy ]
-
+require 'devise'
   class ProjectsController < ApplicationController
     before_action :set_project, only: %i[ show edit update destroy ] #, except: [:index, :show]
-    #before_action :authenticate_admin!, except: [:show]
-  
+
   # GET /projects or /projects.json
   def index
     @projects = Project.all
