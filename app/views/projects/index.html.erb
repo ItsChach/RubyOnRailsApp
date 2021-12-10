@@ -79,60 +79,20 @@
         </div>
         <% end %>
        </tr>
-     
-         <% end %>
-    
-  </div>
-  <hr>
-  <div align="center"> 
-<p style="background-color:#343a3f" id="notice"><%= notice %></p>
-</div>
-
- <div style="border:1px solid black;margin-left:auto;margin-right:auto;" class="jumbotron bg-dark text-white ">
-      <h1 style="text-align:center;"> Masterpeieces</h1>
-      <br><br>
-  </div >
-    <div style="background-color:#343a3f; border:1px solid black;margin-left:auto;margin-right:auto;" class="panel text-center">
-      <p><h2> Essence of 'Portfolio' </h2></p>
-      <p> Witness the briliance of low skill web development, here, right before your vary eyes!!!</p>
-      <p> Below you will find some information describing projects that have been created during my time in college 
-          studying computer science. I know that reading about a project is not as enjoyable as being able to get your hands on them to explore, that is why you will be able to experiance two of them for yourself! </p>
-      <div align="right"> 
-      <p> *blame your fingers, they led you here. </p>
-      </div>
-    </div>
-</div>
-<div class="container py-4">
-<table style="background-color:#343a3f; border:1px solid black; margin-left:auto;margin-right:auto;">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody style="background-color:#343a3f">
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= button_to 'Show', project, method: :get %></td>
-        <% if admin_signed_in? %> 
-        <td><%= button_to 'Edit', edit_project_path(project), method: :get %></td>
-        <td><%= button_to 'Destroy', project, :method => :delete %></td>
+       <% else %>
+       <% @projects.each do |project| %>
+        <tr>
+         <div class="col-md-4">
+           <h2> <td><%= project.title %></td> </h2>
+           <hr>
+           <div class = "jumbotron bg-dark">
+             <div class = "container">
+               <td><%= "To view this project, please click" " View Details" "." %></td><p></p>
+              </div>
+            </div>
+           <p><a class = "btn btn-secondary bg-success"  <%= link_to 'View details', project %> </a></p>
+          </div>
           <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-<br>
-
-<% if admin_signed_in? %> 
-<%= button_to 'New Project', new_project_path, method: :get, class: 'btn btn-outline-light' %>
-<% end %>
-</div>
+         </tr>
+         <% end %>
 </main>
-
-
